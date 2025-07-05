@@ -1,0 +1,11 @@
+! Xmodmap configuration
+! Remap Caps Lock to Ctrl
+
+! Clear caps lock
+clear Lock
+
+! Set caps lock to control
+keycode 66 = Control_L
+
+! Add to control modifier
+add Control = Control_L

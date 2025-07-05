@@ -1,0 +1,5 @@
+# .xinitrc configuration
+# Created by setup script
+
+# Load custom key mappings
+[ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
