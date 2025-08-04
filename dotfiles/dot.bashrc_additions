@@ -1,0 +1,72 @@
+# Additional shell configuration
+# Added by setup script
+
+# Useful aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+# Development aliases
+alias gc='git commit'
+alias gp='git push'
+alias gl='git pull'
+alias gs='git status'
+alias gd='git diff'
+alias ga='git add'
+alias gco='git checkout'
+alias gb='git branch'
+alias glog='git log --oneline --graph --decorate'
+
+# System aliases
+alias pacs='pacman -S'
+alias pacss='pacman -Ss'
+alias pacr='pacman -R'
+alias pacu='pacman -Syu'
+alias pacq='pacman -Q'
+
+# Navigation aliases
+alias h='cd ~'
+alias c='clear'
+alias x='exit'
+
+# Productivity aliases
+alias py='python'
+alias py3='python3'
+alias pip='pip3'
+alias vi='vim'
+alias nv='nvim'
+
+# Environment variables
+export EDITOR='vim'
+export VISUAL='vim'
+export PAGER='less'
+export BROWSER='firefox'
+
+# Node.js environment (if not already set)
+if [[ ":$PATH:" != *":$HOME/.nodebrew/current/bin:"* ]]; then
+    export PATH="$HOME/.nodebrew/current/bin:$PATH"
+fi
+
+# Local bin directory
+if [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+
+# Python user base
+if command -v python3 &> /dev/null; then
+    PYTHON_USER_BASE=$(python3 -m site --user-base)
+    if [[ ":$PATH:" != *":$PYTHON_USER_BASE/bin:"* ]]; then
+        export PATH="$PYTHON_USER_BASE/bin:$PATH"
+    fi
+fi
+
+# History settings
+export HISTSIZE=10000
+export HISTFILESIZE=20000
+export HISTCONTROL=ignoredups:erasedups
